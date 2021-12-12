@@ -1,0 +1,49 @@
+//
+//  {{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import CoreCollections
+
+final class {{ module_info.name }}Presenter: TableViewPresenter, {{ module_info.name }}PresenterFromViewProtocol {
+
+    // MARK: - Public Properties
+
+    weak var view: {{ module_info.name }}ViewProtocol!
+    var interactor: {{ module_info.name }}InteractorProtocol!
+    var router: {{ module_info.name }}RouterProtocol!
+
+    // MARK: - Protocol Implementation
+
+    func viewDidLoad() {
+        ManagerBuilder()
+            .configure(manager: self.manager)
+            .configure(template: TableViewTemplate())
+            .configure(containerView: self.view)
+            .configure(viewDelegate: self)
+            .configure(items: [])
+            .build()
+    }
+
+    // MARK: - Collection Implementation
+
+    // MARK: - Private Implementation
+
+}
+
+// MARK: - {{ module_info.name }}PresenterFromInteractorProtocol Implementation
+
+extension {{ module_info.name }}Presenter: {{ module_info.name }}PresenterFromInteractorProtocol {
+    
+    func didLoadUseCase(model: {{ module_info.name }}UseCaseModel) {
+
+    }
+
+    func didRecieve(error: Error) {
+    
+    }
+
+}
