@@ -13,10 +13,6 @@ code_files:
 - {name: View/ViewController.swift, path: Code/View/view.swift.liquid}
 - {name: View/ViewController.xib, path: Code/View/view_controller.xib.liquid}
 
-# Domain
-- {name: Domain/InputModel.swift, path: Code/Domain/InputModel.swift.liquid}
-- {name: Domain/UseCaseModel.swift, path: Code/Domain/UseCaseModel.swift.liquid}
-
 # Presenter layer
 - {name: Presenter/PresenterProtocol.swift, path: Code/Presenter/presenterProtocol.swift.liquid}
 - {name: Presenter/Presenter.swift, path: Code/Presenter/presenter.swift.liquid}

@@ -12,15 +12,4 @@ protocol {{ module_info.name }}PresenterFromViewProtocol: AnyObject {
     func viewDidLoad()
 }
 
-protocol {{ module_info.name }}PresenterFromInteractorProtocol: AnyObject {
-	
-	/// Загружена UseCase модель
-	func didLoadUseCase(model: {{ module_info.name }}UseCaseModel)
-
-	/// Ошибка работы бизнес логики
-	func didRecieve(error: Error)
-	
-}
-
-typealias {{ module_info.name }}PresenterProtocol 
-    = {{ module_info.name }}PresenterFromViewProtocol & {{ module_info.name }}PresenterFromInteractorProtocol
+typealias {{ module_info.name }}PresenterProtocol = {{ module_info.name }}PresenterFromViewProtocol

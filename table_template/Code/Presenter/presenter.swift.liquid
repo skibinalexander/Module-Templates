@@ -19,6 +19,12 @@ final class {{ module_info.name }}Presenter: TableViewPresenter, {{ module_info.
     // MARK: - Protocol Implementation
 
     func viewDidLoad() {
+        
+    }
+
+    // MARK: - Collection Implementation
+
+    private func configureCollection() {
         ManagerBuilder()
             .configure(manager: self.manager)
             .configure(template: TableViewTemplate())
@@ -28,22 +34,6 @@ final class {{ module_info.name }}Presenter: TableViewPresenter, {{ module_info.
             .build()
     }
 
-    // MARK: - Collection Implementation
-
     // MARK: - Private Implementation
-
-}
-
-// MARK: - {{ module_info.name }}PresenterFromInteractorProtocol Implementation
-
-extension {{ module_info.name }}Presenter: {{ module_info.name }}PresenterFromInteractorProtocol {
-    
-    func didLoadUseCase(model: {{ module_info.name }}UseCaseModel) {
-
-    }
-
-    func didRecieve(error: Error) {
-    
-    }
 
 }

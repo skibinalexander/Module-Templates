@@ -6,7 +6,9 @@
 //  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
 //
 
-import ModuleLauncher
+import CoreCollections
+import CoreCoordinator
+import CoreLauncher
 import Swinject
 import UIKit
 
@@ -15,7 +17,6 @@ final class {{ module_info.name }}Configurator: NSObject, Assembly {
     // MARK: - Public Properties
 
     public var container: Container!
-    public var launcher = DependencyModuleFactory()
 
     // MARK: - Assembly Implementation
 
@@ -46,6 +47,7 @@ final class {{ module_info.name }}Configurator: NSObject, Assembly {
             .initCompleted { [unowned self] _, c in
                 guard let router = c as? {{ module_info.name }}Router else { return }
                 router.configurator = self
+                router.coordinator = r.resolve(Coordinator.self)
             }
 
         // Assembly Presenter Layer
@@ -76,7 +78,7 @@ final class {{ module_info.name }}Configurator: NSObject, Assembly {
 
 extension {{ module_info.name }}Configurator: ConfiguratorView {
 
-    func getView() -> UIViewController {
+    var view: UIViewController {
         container.resolveAsViewController({{ module_info.name }}ViewProtocol.self)
     }
     
